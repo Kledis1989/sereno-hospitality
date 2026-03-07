@@ -247,8 +247,18 @@
             display: flex;
             align-items: center;
             position: relative;
-            background: var(--black) url('images/hero.png') center center / cover no-repeat;
+            background: var(--black);
             overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: -20%;
+            background: url('images/hero.png') center center / cover no-repeat;
+            will-change: transform;
         }
 
         .hero::before {
@@ -259,7 +269,7 @@
             right: 0;
             bottom: 0;
             background:
-                linear-gradient(to bottom, rgba(10, 10, 10, 0.72) 0%, rgba(10, 10, 10, 0.6) 40%, rgba(10, 10, 10, 0.82) 100%),
+                linear-gradient(to bottom, rgba(10, 10, 10, 0.80) 0%, rgba(10, 10, 10, 0.80) 100%),
                 radial-gradient(ellipse at 20% 50%, rgba(201, 169, 110, 0.05) 0%, transparent 60%);
             pointer-events: none;
             z-index: 1;
@@ -499,8 +509,8 @@
 
         .philosophy-grid {
             display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
             align-items: start;
         }
 
@@ -527,8 +537,7 @@
             font-size: 1.05rem;
             line-height: 1.95;
             color: #555;
-            margin-bottom: 3.5rem;
-            max-width: 620px;
+            margin-bottom: 0;
         }
 
         .philosophy-points {
@@ -2305,6 +2314,7 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-label">Luxury Hospitality Consulting</div>
@@ -2332,28 +2342,27 @@
                     <div class="section-label">The Philosophy</div>
                     <h2>Luxury is a <em>promise</em> kept at every touchpoint.</h2>
                     <p>Your hotel is full of ambition and character. Now imagine it matched with the operational rigour and experience design of the world's finest brands — systems built around your identity, elevating your property to the highest level.</p>
-
-                    <div class="philosophy-points">
-                        <div class="philosophy-point">
-                            <span class="philosophy-point-number">01</span>
-                            <div>
-                                <h4>Luxury Consultants</h4>
-                                <p>Our consultants have operated at the highest tier of hospitality — bringing hands-on insider knowledge and proven expertise directly to your property.</p>
-                            </div>
+                </div>
+                <div class="philosophy-points">
+                    <div class="philosophy-point">
+                        <span class="philosophy-point-number">01</span>
+                        <div>
+                            <h4>Luxury Consultants</h4>
+                            <p>Our consultants have operated at the highest tier of hospitality — bringing hands-on insider knowledge and proven expertise directly to your property.</p>
                         </div>
-                        <div class="philosophy-point">
-                            <span class="philosophy-point-number">02</span>
-                            <div>
-                                <h4>Bespoke to You</h4>
-                                <p>Your property has its own story. Every experience and system is designed to amplify what makes you unique.</p>
-                            </div>
+                    </div>
+                    <div class="philosophy-point">
+                        <span class="philosophy-point-number">02</span>
+                        <div>
+                            <h4>Bespoke to You</h4>
+                            <p>Your property has its own story. Every experience and system is designed to amplify what makes you unique.</p>
                         </div>
-                        <div class="philosophy-point">
-                            <span class="philosophy-point-number">03</span>
-                            <div>
-                                <h4>Results That Sustain</h4>
-                                <p>Improvements are embedded into your daily operations, so excellence becomes your lasting standard — long after the engagement ends.</p>
-                            </div>
+                    </div>
+                    <div class="philosophy-point">
+                        <span class="philosophy-point-number">03</span>
+                        <div>
+                            <h4>Results That Sustain</h4>
+                            <p>Improvements are embedded into your daily operations, so excellence becomes your lasting standard — long after the engagement ends.</p>
                         </div>
                     </div>
                 </div>
@@ -2986,6 +2995,17 @@
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 80);
         });
+
+        // Hero parallax
+        const heroBg = document.querySelector('.hero-bg');
+        const hero = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroH = hero.offsetHeight;
+            if (scrollY <= heroH) {
+                heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
+            }
+        }, { passive: true });
 
         // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
