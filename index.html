@@ -2806,7 +2806,7 @@
                     </div>
                 </div>
 
-                <form class="contact-form reveal reveal-delay-2" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+                <form class="contact-form reveal reveal-delay-2" id="contactForm" action="https://formspree.io/f/mlgpddla" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -2931,30 +2931,34 @@
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            // Build mailto fallback
-            const subject = encodeURIComponent('Discovery Call Request — ' + (data.property || 'New Enquiry'));
-            const body = encodeURIComponent(
-                'Name: ' + data.name + '\n' +
-                'Email: ' + data.email + '\n' +
-                'Property: ' + (data.property || 'N/A') + '\n' +
-                'Type: ' + (data.type || 'N/A') + '\n\n' +
-                'Message:\n' + (data.message || 'N/A')
-            );
-
-            window.location.href = 'mailto:hello@serenohospitality.com?subject=' + subject + '&body=' + body;
-
-            // Visual feedback
             const btn = this.querySelector('.btn-gold');
             const originalText = btn.textContent;
-            btn.textContent = 'Opening Email Client...';
+            btn.textContent = 'Sending...';
             btn.style.opacity = '0.7';
-            setTimeout(() => {
-                btn.textContent = originalText;
+            btn.disabled = true;
+
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    btn.textContent = 'Enquiry Sent ✓';
+                    btn.style.opacity = '1';
+                    contactForm.reset();
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                    }, 4000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            }).catch(() => {
+                btn.textContent = 'Error — Please try again';
                 btn.style.opacity = '1';
-            }, 3000);
+                btn.disabled = false;
+                setTimeout(() => { btn.textContent = originalText; }, 3000);
+            });
         });
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(button => {
