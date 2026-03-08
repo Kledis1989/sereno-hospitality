@@ -171,9 +171,16 @@
         }
 
         .logo {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
             text-decoration: none;
             line-height: 1;
+        }
+
+        .logo-icon {
+            height: 30px;
+            width: 30px;
         }
 
         .logo img {
@@ -253,12 +260,13 @@
 
         .hero-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: -5%;
+            left: -3%;
+            right: -3%;
             bottom: -20%;
             background: url('images/hero.png') center center / cover no-repeat;
             will-change: transform;
+            transform: scale(1.05);
         }
 
         .hero::before {
@@ -1845,6 +1853,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-left p {
@@ -1894,6 +1904,257 @@
 
         .footer-social a:hover {
             color: var(--gold);
+        }
+
+        /* ── Cinematic Section Backgrounds ──────────── */
+        .cinematic-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-atmosphere {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .cinematic-section > .container,
+        .cinematic-section > .container-narrow {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Dark overlay for all cinematic sections */
+        .section-atmosphere::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.78);
+            z-index: 1;
+        }
+
+        /* Individual section atmospheres - landscape to interior journey */
+        /* Philosophy: Approaching entrance - warm golden stone */
+        .philosophy .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(201, 169, 110, 0.25) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 60%, rgba(180, 140, 80, 0.15) 0%, transparent 50%),
+                linear-gradient(165deg, #2a1f14 0%, #1a1510 40%, #0f0d0a 100%);
+        }
+
+        /* Services: Grand lobby - expansive, chandelier glow */
+        .services .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 50% 20%, rgba(218, 190, 130, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 25% 80%, rgba(201, 169, 110, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 75% 80%, rgba(201, 169, 110, 0.08) 0%, transparent 40%),
+                linear-gradient(180deg, #1f1a12 0%, #151210 50%, #0d0b09 100%);
+        }
+
+        /* Team background: Library warmth */
+        .team-background .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(160, 110, 60, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(201, 169, 110, 0.1) 0%, transparent 45%),
+                linear-gradient(150deg, #1e1610 0%, #16120e 50%, #0c0a08 100%);
+        }
+
+        /* Team members: Same library, slightly warmer angle */
+        .team-members .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 60% 30%, rgba(180, 140, 80, 0.18) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 70%, rgba(140, 100, 50, 0.12) 0%, transparent 45%),
+                linear-gradient(170deg, #1c1510 0%, #14100c 50%, #0b0908 100%);
+        }
+
+        /* Impact: Elegant lounge - amber, intimate */
+        .impact .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 40% 30%, rgba(201, 169, 110, 0.18) 0%, transparent 45%),
+                radial-gradient(ellipse at 70% 70%, rgba(160, 100, 50, 0.12) 0%, transparent 50%),
+                linear-gradient(160deg, #1a1410 0%, #12100c 45%, #0a0908 100%);
+        }
+
+        /* Process: Fine dining - precise, candlelit */
+        .process .section-atmosphere {
+            background:
+                radial-gradient(circle at 50% 40%, rgba(210, 175, 110, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 20% 60%, rgba(180, 130, 70, 0.08) 0%, transparent 45%),
+                radial-gradient(ellipse at 80% 60%, rgba(180, 130, 70, 0.08) 0%, transparent 45%),
+                linear-gradient(180deg, #18130e 0%, #100e0a 50%, #090807 100%);
+        }
+
+        /* Portfolio: Luxury suite - soft, intimate glow */
+        .portfolio .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 60% 40%, rgba(201, 169, 110, 0.14) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(140, 110, 70, 0.1) 0%, transparent 45%),
+                linear-gradient(155deg, #16120e 0%, #0f0d0a 50%, #080706 100%);
+        }
+
+        /* FAQ: Private study - muted, focused */
+        .faq .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(160, 130, 80, 0.1) 0%, transparent 45%),
+                linear-gradient(180deg, #14110d 0%, #0d0b09 50%, #070606 100%);
+        }
+
+        /* Contact: Rooftop terrace - open, twilight */
+        .contact .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 50% 10%, rgba(180, 150, 100, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 80%, rgba(100, 80, 60, 0.08) 0%, transparent 40%),
+                linear-gradient(180deg, #161420 0%, #10100e 40%, #0a0908 100%);
+        }
+
+        /* Footer: Night skyline */
+        footer .section-atmosphere {
+            background:
+                radial-gradient(ellipse at 50% 90%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0908 0%, #060505 100%);
+        }
+
+        /* Override original backgrounds for cinematic sections */
+        .philosophy.cinematic-section {
+            background: var(--black);
+            color: var(--cream);
+        }
+
+        .philosophy.cinematic-section .philosophy-content .section-label {
+            color: var(--gold);
+        }
+
+        .philosophy.cinematic-section .philosophy-content h2 {
+            color: var(--cream);
+        }
+
+        .philosophy.cinematic-section .philosophy-content h2 em {
+            color: var(--gold);
+        }
+
+        .philosophy.cinematic-section .philosophy-content > p {
+            color: var(--light-gray);
+        }
+
+        .philosophy.cinematic-section .philosophy-point h4 {
+            color: var(--cream);
+        }
+
+        .philosophy.cinematic-section .philosophy-point p {
+            color: var(--gray);
+        }
+
+        .philosophy.cinematic-section .philosophy-point-number {
+            color: var(--gold);
+        }
+
+        .team-members.cinematic-section {
+            background: var(--black);
+        }
+
+        .team-members.cinematic-section .team-members-header .section-label {
+            color: var(--gold);
+        }
+
+        .team-members.cinematic-section .team-members-header h2 {
+            color: var(--cream);
+        }
+
+        .team-members.cinematic-section .team-members-header h2 em {
+            color: var(--gold);
+        }
+
+        .team-members.cinematic-section .team-members-header p {
+            color: var(--gray);
+        }
+
+        .team-members.cinematic-section .team-info h3 {
+            color: var(--cream);
+        }
+
+        .team-members.cinematic-section .team-role {
+            color: var(--gold);
+        }
+
+        .team-members.cinematic-section .team-info p {
+            color: var(--gray);
+        }
+
+        .team-members.cinematic-section .team-consultants-note {
+            color: var(--gray);
+        }
+
+        .team-members.cinematic-section .team-photo {
+            filter: saturate(0.8) brightness(0.9);
+        }
+
+        .team-members.cinematic-section .team-card:hover .team-photo {
+            filter: saturate(1) brightness(1);
+        }
+
+        .portfolio.cinematic-section {
+            background: var(--black);
+            color: var(--cream);
+        }
+
+        .portfolio.cinematic-section .portfolio-header .section-label {
+            color: var(--gold);
+        }
+
+        .portfolio.cinematic-section .portfolio-header h2 {
+            color: var(--cream);
+        }
+
+        .portfolio.cinematic-section .portfolio-header p {
+            color: var(--gray);
+        }
+
+        .portfolio.cinematic-section .portfolio-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(201, 169, 110, 0.1);
+        }
+
+        .portfolio.cinematic-section .portfolio-card:hover {
+            border-color: rgba(201, 169, 110, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio.cinematic-section .portfolio-name {
+            color: var(--cream);
+        }
+
+        .portfolio.cinematic-section .portfolio-location {
+            color: var(--gray);
+        }
+
+        .portfolio.cinematic-section .portfolio-desc {
+            color: var(--gray);
+        }
+
+        .portfolio.cinematic-section .portfolio-info {
+            background: rgba(10, 10, 10, 0.5);
+        }
+
+        .portfolio.cinematic-section .portfolio-stats {
+            border-color: rgba(201, 169, 110, 0.1);
+        }
+
+        .portfolio.cinematic-section .portfolio-stat-label {
+            color: var(--gray);
+        }
+
+        .portfolio.cinematic-section .portfolio-img {
+            filter: saturate(0.85) brightness(0.9);
+        }
+
+        .portfolio.cinematic-section .portfolio-card:hover .portfolio-img {
+            filter: saturate(1) brightness(1);
+        }
+
+        /* Perspective transition for 3D effect */
+        .cinematic-section {
+            will-change: transform, opacity;
         }
 
         /* ── Responsive ──────────────────────────────── */
@@ -2290,13 +2551,19 @@
       ]
     }
     </script>
+    <!-- GSAP ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <a href="#" class="logo"><img src="logos/sereno-logo.svg" alt="Sereno Hospitality Partners"></a>
+            <a href="#" class="logo">
+                <img src="logos/sereno-icon.svg" alt="" class="logo-icon">
+                <img src="logos/sereno-logo.svg" alt="Sereno Hospitality Partners">
+            </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#philosophy">About</a></li>
                 <li><a href="#services">Services</a></li>
@@ -2335,7 +2602,8 @@
 
 
     <!-- Philosophy / About -->
-    <section class="philosophy" id="philosophy">
+    <section class="philosophy cinematic-section" id="philosophy">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="philosophy-grid reveal">
                 <div class="philosophy-content">
@@ -2371,7 +2639,8 @@
     </section>
 
     <!-- Services -->
-    <section class="services" id="services">
+    <section class="services cinematic-section" id="services">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="services-header reveal">
                 <div class="section-label">What You Get</div>
@@ -2481,7 +2750,8 @@
     </section>
 
     <!-- Team Background / Pedigree -->
-    <section class="team-background">
+    <section class="team-background cinematic-section">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="reveal">
                 <div class="section-label">The Pedigree</div>
@@ -2501,7 +2771,8 @@
     </section>
 
     <!-- Team Members -->
-    <section class="team-members" id="team">
+    <section class="team-members cinematic-section" id="team">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="team-members-header reveal">
                 <div class="section-label">The Team</div>
@@ -2518,29 +2789,29 @@
                     <div class="team-info">
                         <h3>Richard Ashworth</h3>
                         <div class="team-role">Founding Partner</div>
-                        <p>Former General Manager at The Ritz-Carlton, with 32 years shaping service culture across the world.</p>
+                        <p>Former General Manager with an extensive rooms division background — spanning revenue management, financial strategy, and guest experience — with 32 years of experience across some of the most luxurious hotels in the world.</p>
                     </div>
                 </div>
 
                 <div class="team-card reveal reveal-delay-1">
-                    <div class="team-photo-wrap">
-                        <img class="team-photo" loading="lazy" width="400" height="400" src="images/team/marcus-hoffman.png" alt="Marcus Hoffman">
-                    </div>
-                    <div class="team-info">
-                        <h3>Marcus Hoffman</h3>
-                        <div class="team-role">Founding Partner</div>
-                        <p>Former General Manager at Four Seasons, with 28 years leading ultra-luxury properties across the world.</p>
-                    </div>
-                </div>
-
-                <div class="team-card reveal reveal-delay-2">
                     <div class="team-photo-wrap">
                         <img class="team-photo" loading="lazy" width="400" height="400" src="images/team/philippe-durand.png" alt="Philippe Durand">
                     </div>
                     <div class="team-info">
                         <h3>Philippe Durand</h3>
                         <div class="team-role">Founding Partner</div>
-                        <p>Former General Manager at Four Seasons, with 18 years of operational excellence across the world.</p>
+                        <p>Former General Manager with an extensive food &amp; beverage background — spanning culinary operations, financial performance, and guest experience — with over 20 years of experience across some of the most luxurious hotels in the world.</p>
+                    </div>
+                </div>
+
+                <div class="team-card reveal reveal-delay-2">
+                    <div class="team-photo-wrap">
+                        <img class="team-photo" loading="lazy" width="400" height="400" src="images/team/marcus-hoffman.png" alt="Marcus Hoffman">
+                    </div>
+                    <div class="team-info">
+                        <h3>Marcus Hoffman</h3>
+                        <div class="team-role">Founding Partner</div>
+                        <p>Former General Manager with an extensive sales &amp; marketing background — spanning brand positioning, commercial strategy, and distribution — with over 15 years of experience across some of the most luxurious hotels in the world.</p>
                     </div>
                 </div>
             </div>
@@ -2550,7 +2821,8 @@
     </section>
 
     <!-- Impact / Results -->
-    <section class="impact" id="impact">
+    <section class="impact cinematic-section" id="impact">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="impact-header reveal">
                 <div class="section-label">The Impact</div>
@@ -2585,7 +2857,8 @@
 
 
     <!-- Process -->
-    <section class="process" id="process">
+    <section class="process cinematic-section" id="process">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="process-header reveal">
                 <div class="section-label">Your Journey</div>
@@ -2615,7 +2888,8 @@
     </section>
 
     <!-- Portfolio / Selected Clients -->
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio cinematic-section" id="portfolio">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="portfolio-header reveal">
                 <div class="section-label">Selected Projects</div>
@@ -2839,7 +3113,8 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq" id="faq">
+    <section class="faq cinematic-section" id="faq">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="faq-header reveal">
                 <div class="section-label">Common Questions</div>
@@ -2913,7 +3188,8 @@
     </section>
 
     <!-- Contact / Discovery Call -->
-    <section class="contact" id="contact">
+    <section class="contact cinematic-section" id="contact">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-content reveal">
@@ -2966,10 +3242,14 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="cinematic-section">
+        <div class="section-atmosphere"></div>
         <div class="container">
             <div class="footer-left">
-                <a href="#" class="logo"><img src="logos/sereno-logo.svg" alt="Sereno Hospitality Partners"></a>
+                <a href="#" class="logo">
+                    <img src="logos/sereno-icon.svg" alt="" class="logo-icon">
+                    <img src="logos/sereno-logo.svg" alt="Sereno Hospitality Partners">
+                </a>
                 <p>17 Côte d'Eich, L-1450 Luxembourg</p>
                 <p>&copy; 2026 Sereno Hospitality Partners. All rights reserved.</p>
             </div>
@@ -2990,20 +3270,41 @@
     <script>
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
-
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 80);
         });
 
-        // Hero parallax
+        // ── Hero 2-layer mouse parallax ──────────────
         const heroBg = document.querySelector('.hero-bg');
+        const heroContent = document.querySelector('.hero-content');
         const hero = document.querySelector('.hero');
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        if (!isMobile) {
+            hero.addEventListener('mousemove', (e) => {
+                const rect = hero.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                // Background moves opposite to mouse for depth
+                heroBg.style.transform = `translate(${x * -20}px, ${y * -15}px) scale(1.05)`;
+                // Text moves slightly with mouse
+                heroContent.style.transform = `translate(${x * 6}px, ${y * 4}px)`;
+            });
+            hero.addEventListener('mouseleave', () => {
+                heroBg.style.transform = 'translate(0, 0) scale(1.05)';
+                heroContent.style.transform = 'translate(0, 0)';
+            });
+            heroBg.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            heroContent.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        }
+
+        // Hero scroll parallax (both mobile and desktop)
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             const heroH = hero.offsetHeight;
             if (scrollY <= heroH) {
-                heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
+                const scale = isMobile ? 1 : 1.05;
+                heroBg.style.transform = `translateY(${scrollY * 0.35}px) scale(${scale})`;
             }
         }, { passive: true });
 
@@ -3050,6 +3351,95 @@
                     window.scrollTo({ top, behavior: 'smooth' });
                 }
             });
+        });
+
+        // ── GSAP Cinematic Perspective Transitions ──
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            gsap.registerPlugin(ScrollTrigger);
+
+            const sections = document.querySelectorAll('.cinematic-section');
+            const isMobileDevice = window.matchMedia('(max-width: 768px)').matches;
+
+            sections.forEach((section) => {
+                if (isMobileDevice) {
+                    // Mobile: simple fade-in
+                    gsap.fromTo(section,
+                        { opacity: 0.7 },
+                        {
+                            opacity: 1,
+                            duration: 0.6,
+                            ease: 'power2.out',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 85%',
+                                end: 'top 40%',
+                                scrub: 0.8,
+                            }
+                        }
+                    );
+                } else {
+                    // Desktop: perspective shift (3-6° tilt)
+                    gsap.fromTo(section,
+                        {
+                            transformPerspective: 1200,
+                            rotateX: 4,
+                            opacity: 0.6,
+                            transformOrigin: 'center bottom',
+                            scale: 0.97,
+                        },
+                        {
+                            transformPerspective: 1200,
+                            rotateX: 0,
+                            opacity: 1,
+                            scale: 1,
+                            ease: 'power2.out',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 90%',
+                                end: 'top 50%',
+                                scrub: 0.6,
+                            }
+                        }
+                    );
+
+                    // Subtle atmosphere parallax within each section
+                    const atmo = section.querySelector('.section-atmosphere');
+                    if (atmo) {
+                        gsap.fromTo(atmo,
+                            { y: -30 },
+                            {
+                                y: 30,
+                                ease: 'none',
+                                scrollTrigger: {
+                                    trigger: section,
+                                    start: 'top bottom',
+                                    end: 'bottom top',
+                                    scrub: true,
+                                }
+                            }
+                        );
+                    }
+                }
+            });
+
+            // Hero exit: zoom + tilt away as user scrolls past
+            if (!isMobileDevice) {
+                gsap.to('.hero', {
+                    transformPerspective: 1200,
+                    rotateX: -3,
+                    scale: 1.04,
+                    opacity: 0.4,
+                    transformOrigin: 'center top',
+                    ease: 'power1.in',
+                    scrollTrigger: {
+                        trigger: '.hero',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 0.5,
+                    }
+                });
+            }
         });
 
         // Form submission handler

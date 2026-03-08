@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <!-- Left laurel branch -->
+  <path d="M16 34 C14 30, 10 28, 8 24" stroke="#C9A96E" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  <path d="M14.5 31 C12 30, 10 28.5, 9 26" stroke="#C9A96E" stroke-width="0.5" fill="none" opacity="0.7"/>
+  <!-- Left leaves -->
+  <path d="M15 32 C12 33, 10 31, 12 29 C14 30, 15.5 31, 15 32Z" fill="#C9A96E" opacity="0.9"/>
+  <path d="M13 29 C10 29.5, 8.5 27, 10.5 25.5 C12 27, 13.5 28, 13 29Z" fill="#C9A96E" opacity="0.85"/>
+  <path d="M11 26 C8.5 26, 7 24, 9 22.5 C10.5 24, 11.5 25, 11 26Z" fill="#C9A96E" opacity="0.8"/>
+  <path d="M9.5 23 C7.5 22.5, 6.5 20.5, 8 19 C9.5 20.5, 10 22, 9.5 23Z" fill="#C9A96E" opacity="0.75"/>
+  <path d="M8.5 20 C7 19, 6.5 17, 8 16 C9 17.5, 9 19, 8.5 20Z" fill="#C9A96E" opacity="0.7"/>
+
+  <!-- Right laurel branch -->
+  <path d="M24 34 C26 30, 30 28, 32 24" stroke="#C9A96E" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  <path d="M25.5 31 C28 30, 30 28.5, 31 26" stroke="#C9A96E" stroke-width="0.5" fill="none" opacity="0.7"/>
+  <!-- Right leaves -->
+  <path d="M25 32 C28 33, 30 31, 28 29 C26 30, 24.5 31, 25 32Z" fill="#C9A96E" opacity="0.9"/>
+  <path d="M27 29 C30 29.5, 31.5 27, 29.5 25.5 C28 27, 26.5 28, 27 29Z" fill="#C9A96E" opacity="0.85"/>
+  <path d="M29 26 C31.5 26, 33 24, 31 22.5 C29.5 24, 28.5 25, 29 26Z" fill="#C9A96E" opacity="0.8"/>
+  <path d="M30.5 23 C32.5 22.5, 33.5 20.5, 32 19 C30.5 20.5, 30 22, 30.5 23Z" fill="#C9A96E" opacity="0.75"/>
+  <path d="M31.5 20 C33 19, 33.5 17, 32 16 C31 17.5, 31 19, 31.5 20Z" fill="#C9A96E" opacity="0.7"/>
+
+  <!-- Center S lettermark -->
+  <text x="20" y="26" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="400" fill="#F5F0EB" letter-spacing="0">S</text>
+</svg>
